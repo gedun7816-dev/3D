@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D 模型展示（含 AR 與進度條）</title>
+
+  <!-- 載入 model-viewer 元件 -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f5f5f5;
+    }
+    model-viewer {
+      width: 100%;
+      height: 100%;
+    }
+    /* 進度條樣式 */
+    .progress-bar {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 8px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .update-bar {
+      height: 100%;
+      background: #4caf50;
+      width: 0%;
+    }
+    .hide {
+      display: none;
+    }
+    /* AR 按鈕樣式 */
+    #ar-button {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #ar-button:hover {
+      background: #1976d2;
+    }
+    /* AR 提示圖 */
+    #ar-prompt {
+      position: absolute;
+      bottom: 140px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    #ar-prompt img {
+      width: 50px;
+      height: auto;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <model-viewer 
+    src="assets/model.glb"
+    poster="assets/poster.webp"
+    environment-image="assets/environment.hdr"
+    shadow-intensity="1"
+    tone-mapping="neutral"
+    ar
+    ar-modes="scene-viewer webxr quick-look"
+    camera-controls
+    touch-action="pan-y"
+    style="--poster-color: transparent;">
+    
+    <!-- 進度條 -->
+    <div class="progress-bar hide" slot="progress-bar">
+      <div class="update-bar"></div>
+    </div>
+
+    <!-- AR 按鈕 -->
+    <button slot="ar-button" id="ar-button">在您的空間中查看</button>
+
+    <!-- AR 提示圖示 -->
+    <div id="ar-prompt">
+      <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="AR 提示">
+    </div>
+
+  </model-viewer>
+
+</body>
+</html>
