@@ -28,7 +28,7 @@ scene.add(dirLight);
 const loader = new GLTFLoader();
 loader.load(
   'model.glb', // 放在和 HTML 同資料夾
-  function (gltf) {
+  function (gltf) { // 成功載入回呼
     const model = gltf.scene;
 
     // 自動居中與縮放
@@ -43,8 +43,8 @@ loader.load(
     scene.add(model);
     console.log('✅ 模型加载成功');
   },
-  undefined,
-  function (error) {
+  undefined, // 這裡可以加載入進度
+  function (error) { // 失敗回呼
     console.error('❌ 模型加载失败', error);
   }
 );
