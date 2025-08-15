@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Model on GitHub Pages</title>
-  <!-- 1. 引入 Three.js 核心库（全局变量模式，无需打包） -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-  <!-- 2. 引入 GLB 模型加载器（Three.js 扩展模块） -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Three.js GLB Demo</title>
   <style>
-    /* 让画布占满屏幕，无空白边距 */
-    body { margin: 0; overflow: hidden; background: #f0f0f0; }
-    canvas { display: block; }
+    body {
+      margin: 0;
+      overflow: hidden; /* 不要滚动条 */
+      background-color: #000; /* 背景黑色更凸显模型 */
+    }
+    #loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-family: sans-serif;
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
-  <!-- 3. 引入逻辑脚本（无需 type="module"，避免浏览器模块报错） -->
-  <script src="./main.js"></script>
+  <!-- 加载提示 -->
+  <div id="loading">加载中...</div>
+
+  <!-- 你的 Three.js 代码 -->
+  <script type="module" src="./main.js"></script>
 </body>
 </html>
