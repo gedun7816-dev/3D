@@ -1,6 +1,6 @@
-import * as THREE from 'https://unpkg.com/three@0.153.0/build/three.module.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.153.0/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from 'https://unpkg.com/three@0.153.0/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
 
 // 建立場景
 const scene = new THREE.Scene();
@@ -18,6 +18,7 @@ document.body.appendChild(renderer.domElement);
 // 控制器
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
+controls.dampingFactor = 0.05;
 
 // 光源
 scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1));
@@ -28,7 +29,7 @@ scene.add(dirLight);
 // 載入模型
 const loader = new GLTFLoader();
 loader.load(
-  './model.glb', // 本地檔案同資料夾
+  './model.glb', // 確保 model.glb 和 index.html 在同一資料夾
   function (gltf) {
     const model = gltf.scene;
 
