@@ -32,8 +32,8 @@ scene.add(dirLight);
 const loader = new GLTFLoader();
 loader.load(
   './model.glb',
-  function (gltf) {
-    const model = gltf.scene;
+  function (glb) {
+    const model = glb.scene;
 
     // 自動置中與縮放
     const box = new THREE.Box3().setFromObject(model);
