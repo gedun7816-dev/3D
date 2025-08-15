@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D 模型展示</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { height: 100%; }
+    body { margin: 0; overflow: hidden; background: #111; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    .toast {
+      position: fixed; left: 12px; bottom: 12px; padding: 10px 12px;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px; backdrop-filter: blur(6px); font-size: 14px;
+    }
+    .badge {
+      display:inline-block; margin-left:8px; padding:2px 6px; border-radius:8px;
+      border:1px solid rgba(255,255,255,.2); font-size:12px; opacity:.8;
+    }
+    a { color: #9dd6ff; }
+  </style>
+</head>
+<body>
+  <!-- 必須加 type="module" 才能載入 ES module -->
+  <script type="module" src="./main.js"></script>
+  <div class="toast">
+    <strong>拖曳滑鼠旋轉、滾輪縮放</strong>
+    <span class="badge">Three.js</span>
+  </div>
+</body>
+</html>
