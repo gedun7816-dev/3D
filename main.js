@@ -16,8 +16,7 @@ scene.add(new THREE.DirectionalLight(0xffffff, 1));
 
 // 加载模型
 const loader = new GLTFLoader();
-loader.load(
-  'model.glb',
+loader.load('model.glb', ...)
   function (gltf) {
     const model = gltf.scene;
 
